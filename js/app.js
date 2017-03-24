@@ -23,6 +23,9 @@ Enemy.prototype.update = function(dt) {
 
     };
     this.x = this.x + this.speed * dt;
+    if (this.x >= 505) {
+        this.x = 0;
+    };
 };
 
 // Draw the enemy on the screen, required method for game
@@ -55,14 +58,18 @@ Player.prototype.render = function() {
                         // Place the player object in a variable called player
 
 
-var enemy1 = new Enemy(-75, 50);
-var enemy2 = new Enemy(-150, 150);
-var enemy3 = new Enemy(0, 220);
+var enemy1 = new Enemy(-325, 50);
+var enemy2 = new Enemy(-270, 150);
+var enemy3 = new Enemy(-100, 220);
+var enemy4 = new Enemy(0, 150);
+var enemy5 = new Enemy(-150, 50);
 
 var allEnemies = [];
 allEnemies.push(enemy1);
 allEnemies.push(enemy2);
 allEnemies.push(enemy3);
+allEnemies.push(enemy4);
+allEnemies.push(enemy5);
 
 
 var player = new Player(200, 400);
