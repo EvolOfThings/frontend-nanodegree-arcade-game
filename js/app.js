@@ -43,8 +43,6 @@ var Player = function(x, y, sprite){
 };
 
 Player.prototype.update = function(dt) {
-    // this.x = this.x + this.speed * dt;
-    // this.y = this.y + this.speed * dt;
 
 };
 
@@ -58,7 +56,7 @@ var player = new Player(200, 400);
 Player.prototype.handleInput = function(keypress) {
     if (keypress === 'left' && this.x > 0) {
         this.x -= 50;
-    } else if (keypress === 'right' && this.x < 200) {
+    } else if (keypress === 'right' && this.x < 400) {
         this.x += 50;
     } else if (keypress === 'up' && this.y > 0) {
         this.y -= 50 ;
