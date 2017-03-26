@@ -1,6 +1,6 @@
 // Enemies our player must avoid
 
-var Enemy = function(x, y, sprite) {
+var Enemy = function(x, y, speed) {
     // Variables applied to each of our instances go here,
     // we've provided one for you to get started
 
@@ -8,8 +8,8 @@ var Enemy = function(x, y, sprite) {
     // a helper we've provided to easily load images
     this.x = x;
     this.y = y;
+    this.speed = speed;
     this.sprite = 'images/enemy-bug.png';
-    this.speed = 100;
 };
 
 
@@ -19,7 +19,7 @@ Enemy.prototype.update = function(dt) {
     // You should multiply any movement by the dt parameter
     // which will ensure the game runs at the same speed for
     // all computers.
-    this.x = this.x + this.speed * dt;
+    this.x += this.speed * dt;
     if (this.x > 505) {
         this.x = 0;
     };
@@ -38,6 +38,7 @@ Enemy.prototype.render = function() {
 var Player = function(x, y, sprite){
     this.x = 200;
     this.y =400;
+    this.speed = 50;
     this.sprite = 'images/char-boy.png';
 };
 
@@ -66,13 +67,13 @@ Player.prototype.render = function() {
 
 Player.prototype.handleInput = function(keypress) {
     if (keypress === 'left' && this.x > 0) {
-        this.x -= 50;
+        this.x -= this.speed;
     } else if (keypress === 'right' && this.x < 400) {
-        this.x += 50;
+        this.x += this.speed;
     } else if (keypress === 'up' && this.y > 0) {
-        this.y -= 50 ;
+        this.y -= this.speed;
     } else if (keypress === 'down' && this.y < 400 ) {
-        this.y += 50;
+        this.y += this.speed;
     }
 };
 
@@ -84,7 +85,6 @@ Player.prototype.checkCollision = function() {
             70 + allEnemies[i].y > player.y) {
             console.log("player collided with the enemy!");
             player.reset();
-            console.log(this.x);
         }
 
     }
@@ -95,11 +95,11 @@ Player.prototype.checkCollision = function() {
 // Place all enemy objects in an array called allEnemies
 // Place the player object in a variable called player
 
-var enemy1 = new Enemy(-325, 50);
-var enemy2 = new Enemy(-270, 150);
-var enemy3 = new Enemy(-100, 220);
-var enemy4 = new Enemy(0, 150);
-var enemy5 = new Enemy(-150, 50);
+var enemy1 = new Enemy(-325, 50, 50);
+var enemy2 = new Enemy(-270, 150, 100);
+var enemy3 = new Enemy(-100, 220, 130);
+var enemy4 = new Enemy(0, 150, 90);
+var enemy5 = new Enemy(-150, 50, 175);
 
 var allEnemies = [enemy1, enemy2, enemy3, enemy4, enemy5];
 var player = new Player();
