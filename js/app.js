@@ -20,7 +20,7 @@ Enemy.prototype.update = function(dt) {
     // which will ensure the game runs at the same speed for
     // all computers.
     this.x = this.x + this.speed * dt;
-    if (this.x >= 505) {
+    if (this.x > 505) {
         this.x = 0;
     };
 };
@@ -36,22 +36,33 @@ Enemy.prototype.render = function() {
 // a handleInput() method.
 
 var Player = function(x, y, sprite){
-    this.x = x;
-    this.y = y;
+    this.x = 200;
+    this.y =400;
     this.sprite = 'images/char-boy.png';
-    this.speed = 2;
 };
 
-Player.prototype.update = function(dt) {
+Player.prototype.reset = function() {
+    this.x = 200;
+    this.y =400;
+};
 
+Player.prototype.win = function() {
+    alert("Yay!! I WON");
+}
+
+Player.prototype.update = function(dt) {
+    this.checkCollision();
+
+    if (this.y < 20) {
+        this.win();
+        this.reset();
+    }
 };
 
 Player.prototype.render = function() {
     ctx.drawImage(Resources.get(this.sprite), this.x, this.y);
 };
 
-
-var player = new Player(200, 400);
 
 Player.prototype.handleInput = function(keypress) {
     if (keypress === 'left' && this.x > 0) {
@@ -62,8 +73,20 @@ Player.prototype.handleInput = function(keypress) {
         this.y -= 50 ;
     } else if (keypress === 'down' && this.y < 400 ) {
         this.y += 50;
-    } else {
-        return false;
+    }
+};
+
+Player.prototype.checkCollision = function() {
+    for(i = 0; i < 5; i++) {   // index of allEnemies array
+        if (allEnemies[i].x < player.x + 70 &&
+            allEnemies[i].x + 70 > player.x &&
+            allEnemies[i].y < player.y + 70 &&
+            70 + allEnemies[i].y > player.y) {
+            console.log("player collided with the enemy!");
+            player.reset();
+            console.log(this.x);
+        }
+
     }
 };
 
@@ -72,19 +95,14 @@ Player.prototype.handleInput = function(keypress) {
 // Place all enemy objects in an array called allEnemies
 // Place the player object in a variable called player
 
-
 var enemy1 = new Enemy(-325, 50);
 var enemy2 = new Enemy(-270, 150);
 var enemy3 = new Enemy(-100, 220);
 var enemy4 = new Enemy(0, 150);
 var enemy5 = new Enemy(-150, 50);
 
-var allEnemies = [];
-allEnemies.push(enemy1);
-allEnemies.push(enemy2);
-allEnemies.push(enemy3);
-allEnemies.push(enemy4);
-allEnemies.push(enemy5);
+var allEnemies = [enemy1, enemy2, enemy3, enemy4, enemy5];
+var player = new Player();
 
 
 // This listens for key presses and sends the keys to your
@@ -100,30 +118,4 @@ document.addEventListener('keyup', function(e) {
 
     player.handleInput(allowedKeys[e.keyCode]);
 });
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
