@@ -47,15 +47,16 @@ Player.prototype.reset = function() {
     this.y =400;
 };
 
-Player.prototype.win = function() {
-    alert("Yay!! I WON");
-}
 
 Player.prototype.update = function(dt) {
     this.checkCollision();
 
     if (this.y < 20) {
-        this.win();
+        $('#won').show();
+        $('.success').click(function() {
+            $('#won').hide();
+            document.location.reload();
+        })
         this.reset();
     }
 };
