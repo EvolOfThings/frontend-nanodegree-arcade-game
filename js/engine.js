@@ -29,6 +29,19 @@ var Engine = (function(global) {
     canvas.height = 606;
     doc.body.appendChild(canvas);
 
+    ////////////////////////////////////////////////////////////////////////
+    //TODO: INsert div to give directions
+    /* var displayScoreLevel = function(aScore, aLevel) {
+        var canvas = document.getElementsByTagName('canvas');
+        var firstCanvasTag = canvas[0];
+
+        // add player score and level to div element created
+        scoreLevelDiv.innerHTML = 'Score: ' + aScore
+            + ' / ' + 'Level: ' + aLevel;
+        document.body.insertBefore(scoreLevelDiv, firstCanvasTag[0]);
+    }; */
+ ////////////////////////////////////////////////////////////////////////
+
     /* This function serves as the kickoff point for the game loop itself
      * and handles properly calling the update and render methods.
      */
