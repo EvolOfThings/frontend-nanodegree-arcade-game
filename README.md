@@ -1,6 +1,32 @@
-frontend-nanodegree-arcade-game
-===============================
+# Frontend Nanodegree: Arcade game clone
 
-Students should use this [rubric](https://review.udacity.com/#!/projects/2696458597/rubric) for self-checking their submission. Make sure the functions you write are **object-oriented** - either class functions (like Player and Enemy) or class prototype functions such as Enemy.prototype.checkCollisions, and that the keyword 'this' is used appropriately within your class and class prototype functions to refer to the object the function is called upon. Also be sure that the **readme.md** file is updated with your instructions on both how to 1. Run and 2. Play your arcade game.
+---
 
-For detailed instructions on how to get started, check out this [guide](https://docs.google.com/document/d/1v01aScPjSWCCWQLIpFqvg3-vXLH2e8_SZQKC8jNO0Dc/pub?embedded=true).
+#### Introduction
+
+This is one of the projects from Udacity's Frontend Web Developer Nanodegree curriculum, that focuses on developing and understanding of Object-Oriented JavaScript and HTML5 Canvas skills. This is a clone of classic Frogger Arcade game, the game engine loop and resources are provided by Udacity.
+
+
+__*Techniques/Skills required to build*__
+
+> Object-Oriented JavaScript, Constructor function, Prototypal Inheritance, HTML5 Canvas API, Resource loading and jQuery(Optional)
+
+---
+### How to run the game:
+
+
+* Play the game at [Rishad's Arcade game.](https://evolofthings.github.io/frontend-nanodegree-arcade-game/)
+* Alternatively, [html preview](https://htmlpreview.github.io/) can be used to play the game by pasting link of index.html file.
+    * Right click on index.html and select copy Link address.
+* This repository can be either cloned or downloaded(zip file).
+    * Open a browser window and navigate to the index.html file in your application's directory.
+
+
+### How to play the game:
+
+
+The goal is to get the player character to move across the bricks to reach water without getting hit by the enemy bugs.
+
+__Controls:__
+Move the player by simply using the main arrow keys(up/right/down/left) on the keyboard.
+
