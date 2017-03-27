@@ -20,8 +20,9 @@ Enemy.prototype.update = function(dt) {
     // which will ensure the game runs at the same speed for
     // all computers.
     this.x += this.speed * dt;
+
     if (this.x > 505) {
-        this.x = -58;
+        this.x = -158;
     }
 };
 
@@ -41,6 +42,7 @@ var Player = function(x, y, sprite){
     this.reset();
 };
 
+// Reset method
 Player.prototype.reset = function() {
     this.x = 200;
     this.y =400;
@@ -54,7 +56,7 @@ Player.prototype.update = function(dt) {
         $('.success').click(function() {
             $('#won').hide();
             document.location.reload();
-        })
+        });
         this.reset();
     }
 };
@@ -63,7 +65,7 @@ Player.prototype.render = function() {
     ctx.drawImage(Resources.get(this.sprite), this.x, this.y);
 };
 
-
+// Assigning the keyboard keys for the player movement
 Player.prototype.handleInput = function(keypress) {
     if (keypress === 'left' && this.x > 0) {
         this.x -= this.speed;
@@ -88,7 +90,6 @@ Player.prototype.checkCollision = function() {
             console.log("player collided with the enemy!");
             this.reset();
         }
-
     }
 };
 
@@ -105,7 +106,6 @@ var enemy5 = new Enemy(-150, 50, 175);
 
 var allEnemies = [enemy1, enemy2, enemy3, enemy4, enemy5];
 var player = new Player();
-
 
 // This listens for key presses and sends the keys to your
 // Player.handleInput() method. You don't need to modify this.
