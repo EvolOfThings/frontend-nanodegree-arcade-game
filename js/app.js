@@ -21,8 +21,8 @@ Enemy.prototype.update = function(dt) {
     // all computers.
     this.x += this.speed * dt;
     if (this.x > 505) {
-        this.x = 0;
-    };
+        this.x = -58;
+    }
 };
 
 // Draw the enemy on the screen, required method for game
@@ -36,10 +36,9 @@ Enemy.prototype.render = function() {
 // a handleInput() method.
 
 var Player = function(x, y, sprite){
-    this.x = 200;
-    this.y =400;
     this.speed = 50;
     this.sprite = 'images/char-boy.png';
+    this.reset();
 };
 
 Player.prototype.reset = function() {
@@ -77,6 +76,9 @@ Player.prototype.handleInput = function(keypress) {
     }
 };
 
+
+// To check if the player is colliding with the enemy
+
 Player.prototype.checkCollision = function() {
     for(i = 0; i < 5; i++) {   // index of allEnemies array
         if (allEnemies[i].x < player.x + 70 &&
@@ -84,7 +86,7 @@ Player.prototype.checkCollision = function() {
             allEnemies[i].y < player.y + 70 &&
             70 + allEnemies[i].y > player.y) {
             console.log("player collided with the enemy!");
-            player.reset();
+            this.reset();
         }
 
     }
