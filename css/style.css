@@ -60,7 +60,7 @@ span.play_again {
     transform: translate(-50%, -50%);
 }
 
-/*media query*/
+/*media query to avoid overlap of divs for smaller screens*/
 
 @media screen and (max-width: 960px) {
     canvas {

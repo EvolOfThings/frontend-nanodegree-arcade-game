@@ -47,12 +47,11 @@ Player.prototype.reset = function() {
     this.y =400;
 };
 
-
 Player.prototype.update = function(dt) {
     this.checkCollision();
 
     if (this.y < 20) {
-        $('#won').show();
+        $('#won').show();  //for a popup window
         $('.success').click(function() {
             $('#won').hide();
             document.location.reload();
