@@ -99,7 +99,7 @@ Player.prototype.checkCollision = function() {
 var enemy1 = new Enemy(-325, 50, 50);
 var enemy2 = new Enemy(-270, 150, 100);
 var enemy3 = new Enemy(-100, 220, 130);
-var enemy4 = new Enemy(0, 150, 90);
+var enemy4 = new Enemy(-20, 150, 90);
 var enemy5 = new Enemy(-150, 50, 175);
 
 var allEnemies = [enemy1, enemy2, enemy3, enemy4, enemy5];
