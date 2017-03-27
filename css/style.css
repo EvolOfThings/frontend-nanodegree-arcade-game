@@ -3,22 +3,67 @@ body {
     background-color: black;
 }
 
-canvas {
-    border: 5px solid black;
-}
-
 h1 {
     font-family: Monospace;
     font-size: 50px;
     color: gold;
 }
 
-/*.sideBlock {
-    float: right;
-}*/
-
-h3 {
+h2 {
     font-family: Monospace;
     font-size: 20px;
     color: gold;
+}
+
+#directions {
+    width: 22vw;
+    text-align: left;
+    left: 3%;
+    top: 40%;
+    color: gold;
+    position: absolute;
+    overflow: hidden;
+}
+
+.success {
+    text-decoration: none;
+}
+
+span.uwon {
+    font-family: monospace;
+    font-size: 3em;
+    color: red;
+    background: #9a9a92;
+    padding-bottom: 25px;
+    display: inline-block;
+}
+span.play_again {
+    font-family: monospace;
+    color: gold;
+    background-color: blue;
+    padding: 14px 25px;
+    display: inline-block;
+    font-size: 1.8em;
+}
+
+#won {
+    display: none;
+    background: #9a9a92;
+    opacity: 0.9;
+    color: gold;
+    border-radius: 1em;
+    padding: 11em;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    margin-right: -50%;
+    transform: translate(-50%, -50%);
+}
+
+/*media query*/
+
+@media screen and (max-width: 960px) {
+    canvas {
+        margin-left: 140px;
+    }
 }
