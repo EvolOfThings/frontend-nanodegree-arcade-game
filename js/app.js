@@ -1,6 +1,6 @@
 // Enemies our player must avoid
-
 var Enemy = function(x, y, speed) {
+    'use strict';
     // Variables applied to each of our instances go here,
     // we've provided one for you to get started
 
@@ -67,13 +67,15 @@ Player.prototype.render = function() {
 
 // Assigning the keyboard keys for the player movement
 Player.prototype.handleInput = function(keypress) {
+    // to restrict player movement, a constant is used instead of direct magic number(400).
+    var borderEdge = 400;
     if (keypress === 'left' && this.x > 0) {
         this.x -= this.speed;
-    } else if (keypress === 'right' && this.x < 400) {
+    } else if (keypress === 'right' && this.x < borderEdge) {
         this.x += this.speed;
     } else if (keypress === 'up' && this.y > 0) {
         this.y -= this.speed;
-    } else if (keypress === 'down' && this.y < 400 ) {
+    } else if (keypress === 'down' && this.y < borderEdge ) {
         this.y += this.speed;
     }
 };
@@ -83,10 +85,10 @@ Player.prototype.handleInput = function(keypress) {
 
 Player.prototype.checkCollision = function() {
     for(i = 0; i < 5; i++) {   // index of allEnemies array
-        if (allEnemies[i].x < player.x + 70 &&
-            allEnemies[i].x + 70 > player.x &&
-            allEnemies[i].y < player.y + 70 &&
-            70 + allEnemies[i].y > player.y) {
+        if (allEnemies[i].x < this.x + 70 &&
+            allEnemies[i].x + 70 > this.x &&
+            allEnemies[i].y < this.y + 70 &&
+            70 + allEnemies[i].y > this.y) {
             console.log("player collided with the enemy!");
             this.reset();
         }
